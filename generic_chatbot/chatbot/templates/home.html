@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="shadow p-3 mb-5 bg-light text-white rounded h4">
+    <div class="shadow p-3 mb-5 bg-white text-black rounded h5">
+        {% if previous_answer == control %}
+        <b>{{previous_answer}}</b> 
+        {% else %}
+        <b>Previous question: {{previous_question}}</b> 
+        <br>
+        <b>Previous answer: {{previous_answer}}</b> 
+        <br>
+        <br>
+        {% endif %}
+    </div>
+    <form>
+        <label for="question"></label><br>
+        <input type="text" class="form-control" id="question" name="question"><br>
+        <input type="submit" value="Submit" class="btn btn-primary btn-lg w-100 btn-outline-dark">
+    </form>
+</div>
+{% endblock %}
+        
+   

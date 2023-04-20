@@ -1,0 +1,39 @@
+{% load static %}
+<style>
+  body {
+    background: #000000;
+  }
+</style>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.rtl.min.css" integrity="sha384-OXTEbYDqaX2ZY/BOaZV/yFGChYHtrXH2nyXJ372n2Y8abBhrqacCEe+3qhSHtLjy" crossorigin="anonymous">
+    <title>Chatbot</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'oculos/images/Icon_1.png' %}">
+  </head>
+  <body style="background-color:rgba(0, 0, 0, 1);">
+    {% include 'navbar.html' %}
+    <br/><br/>
+    <center>
+    <div class="container" style="background-color:rgba(0, 0, 0, 1);">
+    {% if messages %}
+    {% for message in messages %}
+      <div class="alert alert-info text-primary alert-dismissible fade show" role="alert">
+        <strong>{{ message }}</strong> 
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    {% endfor %}
+    {% endif %}
+    </div>
+    <div class="container" style="background-color:rgba(0, 0, 0, 1);">
+    {% block content %}
+
+    {% endblock %}
+    </div>
+    </center>
+    <br/><br/>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+  </body>
+</html>
